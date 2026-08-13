@@ -1,0 +1,23 @@
+{
+  "name": "wonderful-api-lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KelvinOrigami/Wonderful-API-Lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/KelvinOrigami/Wonderful-API-Lab/issues"
+  },
+  "homepage": "https://github.com/KelvinOrigami/Wonderful-API-Lab#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.2.0"
+  }
+}
