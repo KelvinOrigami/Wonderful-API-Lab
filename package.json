@@ -1,9 +1,16 @@
 {
   "name": "wonderful-api-lab",
   "version": "1.0.0",
-  "description": "",
+  "description": "Playwright API testing lab for the Restful API",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:api": "playwright test tests/api",
+    "test:api:smoke": "playwright test tests/api --grep @smoke",
+    "test:api:regression": "playwright test tests/api --grep @regression",
+    "test:api:list": "playwright test tests/api --list",
+    "typecheck": "tsc --noEmit",
+    "report": "playwright show-report"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KelvinOrigami/Wonderful-API-Lab.git"
@@ -18,6 +25,8 @@
   "homepage": "https://github.com/KelvinOrigami/Wonderful-API-Lab#readme",
   "devDependencies": {
     "@playwright/test": "^1.62.1",
-    "@types/node": "^26.2.0"
+    "@types/node": "^26.2.0",
+    "dotenv": "^17.2.2",
+    "typescript": "^5.9.2"
   }
 }

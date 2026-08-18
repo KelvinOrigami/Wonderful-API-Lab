@@ -1,20 +1,32 @@
 # Wonderful API Lab
 
-This is a small API testing exercise using Playwright and the public Restful API.
+This repo contains API tests for the public Restful API using Playwright.
 
-The test covers the full flow:
-
-- create an object
-- read it
-- update it
-- delete it
-- check that it is no longer available
-
-## Run the test
+## Setup
 
 ```powershell
 npm ci
-npx playwright test tests/restful-api-crud.spec.ts
+Copy-Item .env.example .env
 ```
 
-The test uses `https://api.restful-api.dev/objects`.
+The `.env` file is optional. If `BASE_URL` is missing, the tests use the public Restful API URL by default.
+
+## Run the suites
+
+```powershell
+npm run test:api
+npm run test:api:smoke
+npm run test:api:regression
+npm run typecheck
+```
+
+The API tests are grouped by resource and behavior. The CRUD smoke test covers the full Create, Read, Update and Delete flow. The other tests check each operation independently.
+
+## Tags
+
+Tags can be filtered directly with Playwright:
+
+```powershell
+npx playwright test --grep @smoke
+npx playwright test --grep @regression
+```

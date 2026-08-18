@@ -1,13 +1,16 @@
+import 'dotenv/config';
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  fullyParallel: false,
-  workers: 1,
-  retries: 0,
-  reporter: 'html',
+  fullyParallel: true,
+  retries: process.env.CI ? 1 : 0,
+  timeout: 30_000,
+  reporter: process.env.CI
+    ? [['github'], ['html', { open: 'never' }]]
+    : [['list'], ['html', { open: 'never' }]],
 
   use: {
-    baseURL: 'https://api.restful-api.dev',
+    baseURL: process.env.BASE_URL || 'https://api.restful-api.dev',
   },
 });
